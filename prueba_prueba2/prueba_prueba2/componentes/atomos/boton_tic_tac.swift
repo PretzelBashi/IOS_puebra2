@@ -9,11 +9,13 @@ import SwiftUI
 
 struct BotonTicTac: View {
     @State var opcion_a_mostrar = 0
+
     
     let opciones = ["-", "X", "O"]
     
     var body: some View {
         VStack{
+            
             switch opcion_a_mostrar{
                 case 0: Text("-")
                     .padding(10)

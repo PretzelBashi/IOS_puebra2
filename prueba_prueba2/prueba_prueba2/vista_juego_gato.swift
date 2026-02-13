@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct VistaJuegoGato: View {
+    
+    @State var nombre_jugador: String = ""
 
+    
     var body: some View {
+        
         HStack {
             VStack {
                 BotonTicTac()
