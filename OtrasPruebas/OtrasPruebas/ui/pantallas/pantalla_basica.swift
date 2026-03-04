@@ -26,16 +26,18 @@ struct PantallaBasica: View {
             }
         }
         
-        NavigationLink{
-            
-        }
-        label: {
-            
-        }
+        
         
         Spacer()
         Text("Agregar un Hola")
             .onTapGesture {controlador.agregar_mensajes()}
+        
+        NavigationLink{
+            RegistrarUsuario()
+        }
+        label: {
+            Text("Agregar usuario")
+        }
     }
     
     

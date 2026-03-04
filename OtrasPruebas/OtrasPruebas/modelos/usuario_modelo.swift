@@ -11,7 +11,7 @@ struct Usuario: Identifiable{
     let id = UUID()
     
     let nombre: String
-    let edad: Int
+    let edad: String
     
     let apodo: String
     let instagram: String
