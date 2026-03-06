@@ -11,3 +11,4 @@ struct Mensaje: Identifiable {
     let texto: String
     let id_usuario: String?
 }
+

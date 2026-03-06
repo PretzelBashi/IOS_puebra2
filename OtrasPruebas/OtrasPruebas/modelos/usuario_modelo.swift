@@ -15,4 +15,6 @@ struct Usuario: Identifiable{
     
     let apodo: String
     let instagram: String
+    
+    let activo: Bool
 }
