@@ -31,6 +31,7 @@ struct RegistrarUsuario: View {
         }
         VStack{
             //TextField("Nombre: " , text: $nombre)
+            Text("Crea una cuenta")
             CampoTexto(
                 entrada: $nombre,
                 placeholder: "Nombre",
@@ -64,8 +65,8 @@ struct RegistrarUsuario: View {
             }){
                 Image(systemName: "person.fill.badge.plus")
                 Text("Agregar usuario")
-            }
-        }
+            }.padding(20)
+        }.padding(20)
     }
     func validar_entradas(){
         if(nombre.isEmpty){
