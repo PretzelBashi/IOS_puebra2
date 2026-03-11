@@ -17,7 +17,7 @@ struct NavegadorBasico: View {
                     PantallaBasica()
                 }
             } .badge(control.mensajes.count)
-            Tab("Mensajes", systemImage: "cross"){
+            Tab("Login", systemImage: "cross"){
                 NavigationStack{
                     RegistrarUsuario()
                 }

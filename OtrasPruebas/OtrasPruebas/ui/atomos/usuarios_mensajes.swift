@@ -15,7 +15,7 @@ struct UsuariosMensajes: View {
             LazyVStack(){
                 ForEach(controlador.mensajes){mensaje in
                     NavigationLink{
-                        Text("Esta es la pantalla del \(mensaje)")
+                        PantallaMensaje(mensaje_actual: mensaje)
                     }
                     label: {
                         HStack{
@@ -26,18 +26,22 @@ struct UsuariosMensajes: View {
                                 Text("\(mensaje.id_usuario ?? "Anonimo")")
                                 Text("\(mensaje.texto)")
                             }
-                                .padding(10)
+                                .padding(.bottom,20)
+                                .padding(.top,20)
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                        }.background(Color.white)
-                        
-                        
-                        
+                        }
+                            .background(Color.white)
+                            .cornerRadius(20)                            
+                            .padding(5)
                     }
                 }
             }
-            .background(Color.gray)
+                .background(Color("gris_fondo"))
+            
+            
         }
-    }    
+            .cornerRadius(20)
+    }
 }
 
 #Preview {

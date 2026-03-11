@@ -15,7 +15,7 @@ struct UsuariosConectados: View {
             LazyHStack(){
                 ForEach(controlador.usuarios){usuario in
                     NavigationLink{
-                        Text("Esta es la pantalla del \(usuario)")
+                        PantallaPerfil(usuario_actual: usuario)
                     }
                     label: {
                         VStack(alignment: .center){
@@ -31,14 +31,18 @@ struct UsuariosConectados: View {
                             Text("\(usuario.nombre)")
                             Spacer()
                         }
-                            .padding(10)
-                            .frame(width: 100, height: 200)
+                        .padding(.top,10)
+                            .frame(width: 100, height: 160)
                     }
                 }
             }
         }
-            .padding(.top,20)
-            .frame(width: 380, height: 200)
+            .padding(.top,10)
+            .padding(.leading,20)
+            .padding(.trailing,20)
+            .frame(width: 380, height: 170)
+            .background(Color("gris_fondo"))
+            .cornerRadius(30)
     }
 }
 

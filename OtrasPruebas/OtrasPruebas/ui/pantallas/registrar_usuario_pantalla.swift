@@ -30,44 +30,64 @@ struct RegistrarUsuario: View {
             Text("Hay un problema, porfavor resuelve")
         }
         VStack{
-            //TextField("Nombre: " , text: $nombre)
             Text("Crea una cuenta")
-            CampoTexto(
-                entrada: $nombre,
-                placeholder: "Nombre",
-                error: error,
-                id: CamposRegistrarUsuario.nombre.rawValue
-            )
+                .font(Font.largeTitle)
+                .padding(.bottom,20)
+            VStack{
+                CampoTexto(
+                    entrada: $nombre,
+                    placeholder: "Nombre",
+                    error: error,
+                    id: CamposRegistrarUsuario.nombre.rawValue
+                )
+                
+                CampoTexto(
+                    entrada: $apodo,
+                    placeholder: "Apodo",
+                    error: error,
+                    id: CamposRegistrarUsuario.apodo.rawValue
+                )
+                
+                CampoTexto(
+                    entrada: $edad,
+                    placeholder: "Edad",
+                    error: error,
+                    id: CamposRegistrarUsuario.edad.rawValue
+                )
+                
+                CampoTexto(
+                    entrada: $instagram,
+                    placeholder: "Instagram",
+                    error: error,
+                    id: CamposRegistrarUsuario.instagram.rawValue
+                )
+            }
+                .padding(20)
+                .background(Color.white)
+                .cornerRadius(10)
+                
+            //TextField("Nombre: " , text: $nombre)
             
-            CampoTexto(
-                entrada: $apodo,
-                placeholder: "Apodo",
-                error: error,
-                id: CamposRegistrarUsuario.apodo.rawValue
-            )
-            
-            CampoTexto(
-                entrada: $edad,
-                placeholder: "Edad",
-                error: error,
-                id: CamposRegistrarUsuario.edad.rawValue
-            )
-            
-            CampoTexto(
-                entrada: $instagram,
-                placeholder: "Instagram",
-                error: error,
-                id: CamposRegistrarUsuario.instagram.rawValue
-            )
             
             Button(action: {
                 validar_entradas()
             }){
                 Image(systemName: "person.fill.badge.plus")
                 Text("Agregar usuario")
-            }.padding(20)
-        }.padding(20)
+            }
+                .padding(20)
+                .background(Color("verde_boton"))
+                .cornerRadius(10)
+                .padding(.top,15)
+                
+        }
+            .padding(40)
+            .background(Color("gris_fondo"))
+            .cornerRadius(20)
+            .padding(30)
     }
+    
+    
     func validar_entradas(){
         if(nombre.isEmpty){
             error = ErrorUI(
