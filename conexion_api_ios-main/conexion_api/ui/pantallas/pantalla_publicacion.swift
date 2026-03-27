@@ -7,54 +7,36 @@
 import SwiftUI
 
 struct PantallaPublicacion: View {
-    var id: Int
     @Environment(ControladorGeneral.self) var controlador
     
+    var id: Int
+
     var body: some View {
-        if( controlador.publicacion == nil){
+        VStack{
             switch(controlador.estado){
-                case .descargando_publicacion:
-                    Text("Descargando los datos")
-                    
-                case .en_espera:
-                    Text("-----")
-                        .onAppear{
-                            controlador.descargar_publicacion(id: id)
+                    case .descargando_publicacion:
+                        Image(systemName: "arrowshape.down.circle")
+                            .symbolEffect(.bounce.down, options: .repeat(3))
+                        
+                    case .en_espera:
+                        if let publicacion = controlador.publicacion{
+                            VistaPublicacion(publicacion: publicacion)
                         }
-                case .error_en_descarga:
-                    Text("Existe un error en la descarga")
+                        else {
+                            Text("Error en la descarga")
+                        }
                     
-                default:
-                    Text("Si ves esto, puedes mostrar esta pantalla por una galleta.")
+                    case .error_en_descarga:
+                        Text("Existe un error en la descarga")
+                        
+                    default:
+                        Text("Si ves esto, puedes mostrar esta pantalla por una galleta.")
+                
+            
             }
         }
-        else {
-            
-            VStack{
-                //Titulo de publicacion
-                Text("\(controlador.publicacion?.title ?? "")")
-                    .padding(.top, 30)
-                    .padding(.bottom, 30)
-                    .font(Font.largeTitle.bold())
-                ScrollView(.vertical) {
-                    ForEach(controlador.publicacion?.comentarios ?? [Comentario]()){ comentario in
-                        VStack(){
-                            Text("Usuario: \(comentario.name)")
-                                .padding(.bottom, 10)
-                                .font(Font.largeTitle.bold())
-                                .font(.system(size: 13))
-                            Text("Comentario: \(comentario.body)")
-                                .padding(.bottom, 10)
-                        }
-                        .frame(width: 300)
-                        .padding(10)
-                        .background(Color.gray.opacity(0.3))
-                        .padding(.bottom, 10)
-                    }
-                }
-                .frame(maxWidth: .infinity)
-            }
-            .background(Color.gray.opacity(0.2))
+        .onAppear{
+            controlador.descargar_publicacion(id: id)
         }
     }
 }

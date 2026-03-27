@@ -11,7 +11,6 @@ struct Inicio: View {
     @Environment(ControladorGeneral.self) var controlador
     
     var body: some View {
-        Text("Hola mundo")
         NavigationStack{
             switch(controlador.estado){
                 case .descargando_publicaciones:
@@ -20,44 +19,52 @@ struct Inicio: View {
                 case .en_espera:
                     ScrollView{
                         ForEach(controlador.publicaciones){ publicacion in
-                            NavigationLink{
-                                PantallaPublicacion(id: publicacion.id)
-                            } label: {
-                                HStack(alignment: .center, spacing: 0){
-                                    Text("\(publicacion.userId)")
-                                        .padding(.leading, 7)
-                                        .padding(.trailing, 7)
-                                        .font(Font.largeTitle.bold())
-                                        .font(.system(size: 20))
-                                        .frame(maxHeight: .infinity)
-                                        .background(Color.gray.opacity(0.5))
-                                        .multilineTextAlignment(.leading)
-                                        
-                                    Text(publicacion.title)
-                                        .multilineTextAlignment(.leading)
-                                        .padding(.leading, 12)
-                                    Spacer()
+                            HStack(){
+                                NavigationLink{
+                                    PantallaPublicacion(id: publicacion.id)
+                                } label: {
+                                    Text(publicacion.userId.description)
+                                    
+                                        .font(.system(size: 35, weight: .bold))
+                                        .foregroundStyle(Color.orange)
+                                        .padding(.trailing, 10)
+                                    
                                 }
-                                
-                                .frame(maxWidth: .infinity)
-                                .background(Color.gray.opacity(0.1))
-                                .frame(height: 75)
+                                NavigationLink{
+                                    PantallaPublicacion(id: publicacion.id)
+                                } label: {
+                                    Text(publicacion.title)
+                                        .foregroundStyle(Color.black)
+                                        .multilineTextAlignment(.leading)
+                                }
                             }
-                            .simultaneousGesture(TapGesture().onEnded {
+                            .padding(10)
+                            .padding(.leading, 10)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .background(Color.gray.opacity(0.1))
+                            .padding(.top,10)
+                            
+                            
+                            /*.simultaneousGesture(TapGesture().onEnded {
                                 controlador.publicacion = nil
                                 controlador.descargar_publicacion(id: publicacion.id)
                             }
-                            )
+                            )*/
                             
                         }
+                        
                     }
                     
                     
                 case .descargando_publicacion:
-                    Text("")
+                    Image(systemName: "arrowshape.down.circle")
+                        .symbolEffect(.pulse)
                 case .error_en_descarga:
                     Text("ERROR: Asegurate de tener wifi!!!")
             }
+        }
+        .onAppear{
+            controlador.descargar_publicaciones()
         }
         
     }

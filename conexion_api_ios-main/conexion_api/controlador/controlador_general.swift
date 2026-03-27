@@ -8,8 +8,6 @@ import SwiftUI
 
 @Observable
 class ControladorGeneral{
-    let url_base = "https://jsonplaceholder.typicode.com"
-    
     public var estado: EstadosControladorGeneral
     
     public var publicaciones: [Publicacion] = []
@@ -17,12 +15,16 @@ class ControladorGeneral{
     public var publicacion: Publicacion? = nil
     
     init(){
-        estado = .descargando_publicaciones
+        estado = .en_espera
         
-        descargar_publicaciones()
+        // descargar_publicaciones() /// Esto ya esta viejo, hay que borrarlo en el futuro
     }
     
     func descargar_publicacion(id: Int){
+        if(estado != .en_espera){
+            return
+        }
+        
         self.publicacion = nil
         
         estado = .descargando_publicacion
@@ -31,9 +33,26 @@ class ControladorGeneral{
             try await Task.sleep(for: .seconds(1))
             await _descargar_publicacion(id: String(id))
             await _descargar_comentarios_de_publicacion(id: String(id))
+            await _descargar_usuario(id: self.publicacion?.userId ?? -1)
             
             estado = .en_espera
         }
+    }
+    
+    func descargar_usuario(id: Int){
+        if(estado != .en_espera){
+            return
+        }
+        
+        estado = .descargando_publicacion
+        
+        Task{
+            try await Task.sleep(for: .seconds(1))
+            await _descargar_usuario(id: id)
+            
+            estado = .en_espera
+        }
+
     }
     
     private func _descargar_publicacion(id: String) async {
@@ -64,10 +83,33 @@ class ControladorGeneral{
         }
     }
     
+    private func _descargar_usuario(id: Int) async {
+        let url = "\(url_base)/users/\(id)"
+        
+        let dinosaurio: Usuario? =  await ServicioAPI.descargar_informacion(desde: url)
+        
+        if let dinosaurio = dinosaurio{
+            self.publicacion?.usuario = dinosaurio
+        }
+        
+        else {
+            estado = .error_en_descarga
+        }
+        
+    }
+    
     func descargar_publicaciones(){
+        if(estado != .en_espera){
+            return
+        }
+        
+        estado = .descargando_publicaciones
+        
         Task{
             try await Task.sleep(for: .seconds(1))
             await _descargar_publicaciones()
+            
+            estado = .en_espera
         }
     }
     
