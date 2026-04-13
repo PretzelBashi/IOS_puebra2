@@ -1,0 +1,111 @@
+{
+  "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE" : {
+    "objectMetadataList" : [
+      [
+        "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE",
+        "Root",
+        "changoVueltas"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE",
+        "Root",
+        "changoVueltas",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE",
+        "Root",
+        "changoAnimacion"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE",
+        "Root",
+        "changoAnimacion",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "D3345587-E423-4283-B06A-B0AFC24C79EF" : {
+    "objectMetadataList" : [
+      [
+        "D3345587-E423-4283-B06A-B0AFC24C79EF",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D3345587-E423-4283-B06A-B0AFC24C79EF",
+        "Root",
+        "Timeline2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D3345587-E423-4283-B06A-B0AFC24C79EF",
+        "Root",
+        "Neptune"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D3345587-E423-4283-B06A-B0AFC24C79EF",
+        "Root",
+        "Timeline",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D3345587-E423-4283-B06A-B0AFC24C79EF",
+        "Root",
+        "Timeline"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "D3345587-E423-4283-B06A-B0AFC24C79EF",
+        "Root",
+        "Timeline2",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  }
+}
