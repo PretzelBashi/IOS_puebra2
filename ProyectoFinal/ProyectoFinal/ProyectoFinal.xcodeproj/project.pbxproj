@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FBE040E32F8FC7990024BE57 /* mundo_virtual in Frameworks */ = {isa = PBXBuildFile; productRef = FBE040E22F8FC7990024BE57 /* mundo_virtual */; };
 		FBE1E0242F8D2C5200CFAE1D /* mundo_virtual in Frameworks */ = {isa = PBXBuildFile; productRef = FBE1E0232F8D2C5200CFAE1D /* mundo_virtual */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE040E32F8FC7990024BE57 /* mundo_virtual in Frameworks */,
 				FBE1E0242F8D2C5200CFAE1D /* mundo_virtual in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,6 +73,7 @@
 			name = ProyectoFinal;
 			packageProductDependencies = (
 				FBE1E0232F8D2C5200CFAE1D /* mundo_virtual */,
+				FBE040E22F8FC7990024BE57 /* mundo_virtual */,
 			);
 			productName = ProyectoFinal;
 			productReference = FBE1E00F2F8D247800CFAE1D /* ProyectoFinal.app */;
@@ -101,7 +104,7 @@
 			mainGroup = FBE1E0062F8D247800CFAE1D;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				FBE1E0222F8D2C5200CFAE1D /* XCLocalSwiftPackageReference "mundo_virtual" */,
+				FBE040E12F8FC7990024BE57 /* XCLocalSwiftPackageReference "mundo_virtual" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FBE1E0102F8D247800CFAE1D /* Products */;
@@ -343,13 +346,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		FBE1E0222F8D2C5200CFAE1D /* XCLocalSwiftPackageReference "mundo_virtual" */ = {
+		FBE040E12F8FC7990024BE57 /* XCLocalSwiftPackageReference "mundo_virtual" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = mundo_virtual;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FBE040E22F8FC7990024BE57 /* mundo_virtual */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = mundo_virtual;
+		};
 		FBE1E0232F8D2C5200CFAE1D /* mundo_virtual */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = mundo_virtual;

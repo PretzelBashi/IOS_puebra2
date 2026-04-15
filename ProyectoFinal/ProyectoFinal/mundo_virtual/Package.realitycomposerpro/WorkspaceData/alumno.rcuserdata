@@ -2,7 +2,7 @@
   "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
     "escena.usda",
-    "orangutan.usda"
+    "planetario\/escena.usda"
   ],
   "recentIdentifiers" : {
     "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE" : [
@@ -329,5 +329,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "orangutan.usda"
+  "selectedSceneRelativePath" : "planetario\/escena.usda"
 }
