@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Neptune", "brillitos", "Timeline", "Timeline2"]
+    reorder nameChildren = ["Neptune", "brillitos", "Timeline", "Timeline2", "desplazamiento"]
     def "Neptune" (
         active = true
         references = @Neptune.usdz@
@@ -23,6 +23,9 @@ def Xform "Root"
 
     def Xform "brillitos"
     {
+        float3 xformOp:translate = (0, -0.04660505, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
         def RealityKitComponent "VFXEmitter"
         {
             token info:id = "RealityKit.VFXEmitter"
@@ -191,7 +194,10 @@ def Xform "Root"
 
     def RealityKitComponent "RCP_BehaviorsContainer"
     {
-        rel behaviors = </Root/OnAddedToScene>
+        rel behaviors = [
+            </Root/OnAddedToScene>,
+            </Root/OnNotification>,
+        ]
         uniform token info:id = "RCP.BehaviorsContainer"
     }
 
@@ -212,6 +218,96 @@ def Xform "Root"
             rel affectedObjects = </Root>
             rel animationLibraryKey = </Root/Timeline2>
             rel animationLibraryKeyOverrideKey = </Root/OnAddedToScene/Trigger>
+            token info:id = "PlayTimeline"
+            int loops = 0
+            int performCount = 1
+            token type = "serial"
+        }
+    }
+
+    def RealityKitTimeline "desplazamiento"
+    {
+        def RealityKitTrack "Track"
+        {
+            reorder nameChildren = ["Transform_To", "Transform_To2", "da_un_salto"]
+            def RealityKitAction "Transform_To"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 0.4455178464755078
+                uniform token info:id = "20CF0B91-BD5B-4D6B-B914-3E0EDE649D0F"
+                float3 position = (0.0011621676, 0.73412037, 0.011939764)
+                quatf rotation = (1, 0, 0, 0)
+                float3 scale = (1, 1, 1)
+                double startTime = 0
+                rel target = </Root/Neptune>
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+
+            def RealityKitAction "Transform_To2"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 0.4455178464755078
+                uniform token info:id = "20CF0B91-BD5B-4D6B-B914-3E0EDE649D0F"
+                float3 position = (0.0011621676, -0.0045990944, 0.011939764)
+                quatf rotation = (1, 0, 0, 0)
+                float3 scale = (1, 1, 1)
+                double startTime = 0.44551784657550786
+                rel target = </Root/Neptune>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+
+            def RealityKitAction "da_un_salto"
+            {
+                string actionKind = "notification"
+                double duration = 0
+                uniform token info:id = "BB66BB20-3292-4BF8-8DB0-CAF475AC3466"
+                string notificationName = "hola"
+                double startTime = 0.8910356931510158
+                rel target = </Root/Neptune>
+            }
+        }
+    }
+
+    def Preliminary_Behavior "OnNotification"
+    {
+        rel actions = </Root/OnNotification/Action>
+        uniform bool exclusive
+        rel triggers = </Root/OnNotification/Trigger>
+
+        def Preliminary_Trigger "Trigger"
+        {
+            rel affectedObjects = </Root>
+            string identifier = "da_un_salto"
+            token info:id = "Notification"
+        }
+
+        def Preliminary_Action "Action"
+        {
+            rel affectedObjects = </Root>
+            rel animationLibraryKey = </Root/desplazamiento>
+            rel animationLibraryKeyOverrideKey = </Root/OnNotification/Trigger>
             token info:id = "PlayTimeline"
             int loops = 0
             int performCount = 1

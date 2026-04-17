@@ -12,3 +12,11 @@ public let planetas = [
     "planetario/escena",
     "planetario/escena"
 ]
+
+enum Notificaciones{
+    case da_un_salto
+}
+
+let Historial_notificaciones: [Notificaciones: String] = [
+    Notificaciones.da_un_salto: "da_un_salto"
+]

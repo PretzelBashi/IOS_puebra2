@@ -4,15 +4,6 @@
       [
         "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE",
         "Root",
-        "changoAnimacion"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE",
-        "Root",
         "changoVueltas",
         "Track"
       ],
@@ -41,6 +32,15 @@
       [
         "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE",
         "Root",
+        "changoAnimacion"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9CF982AE-4CA3-44E5-B4C6-3DAB6F0524AE",
+        "Root",
         "changoVueltas"
       ],
       {
@@ -51,6 +51,25 @@
   },
   "ACAA782A-1957-4113-B1D4-11CD0121F19E" : {
     "objectMetadataList" : [
+      [
+        "ACAA782A-1957-4113-B1D4-11CD0121F19E",
+        "Root",
+        "desplazamiento",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "ACAA782A-1957-4113-B1D4-11CD0121F19E",
+        "Root",
+        "desplazamiento"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "ACAA782A-1957-4113-B1D4-11CD0121F19E",
         "Root"
@@ -66,7 +85,8 @@
       [
         "D3345587-E423-4283-B06A-B0AFC24C79EF",
         "Root",
-        "Timeline2"
+        "Timeline2",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -85,8 +105,7 @@
       [
         "D3345587-E423-4283-B06A-B0AFC24C79EF",
         "Root",
-        "Timeline2",
-        "Track"
+        "Timeline2"
       ],
       {
         "isExpanded" : true,
@@ -103,8 +122,7 @@
       },
       [
         "D3345587-E423-4283-B06A-B0AFC24C79EF",
-        "Root",
-        "Timeline"
+        "Root"
       ],
       {
         "isExpanded" : true,
@@ -112,7 +130,8 @@
       },
       [
         "D3345587-E423-4283-B06A-B0AFC24C79EF",
-        "Root"
+        "Root",
+        "Timeline"
       ],
       {
         "isExpanded" : true,
