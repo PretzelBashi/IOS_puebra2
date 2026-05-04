@@ -1,0 +1,35 @@
+//
+//  estado_salto.swift
+//  Shimeji
+//
+//  Created by Jadzia Galletas on 20/04/26.
+//
+
+class SaltoAnimacion: Estado{
+  
+    var contexto: (any MaquinaEstadosGenerica)? = nil
+    
+    static let nombre = "Salto"
+
+    
+    func inicializar() {
+        print("HOla desde Saltillo Hermosillo \(#file)")
+    }
+    
+    func actualizar(_ tipo_interaccion: TiposDeInteraccion, _ interaccion: BotonesDisponibles) {
+        switch tipo_interaccion{
+            case .entidad:
+                contexto?.enviar_peticion(Comando(tipo: .activar_animacion, carga_util: "da_un_salto"))
+            
+            default:
+                print("Error: No tenemos instrucciones para ese comando")
+        }
+    }
+    
+    func finalizar() {}
+    
+    func reaccion(estimulo: String) {
+    }
+    
+    
+}
